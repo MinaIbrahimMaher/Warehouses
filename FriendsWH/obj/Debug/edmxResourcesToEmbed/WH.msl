@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FriendsModelStoreContainer" CdmEntityContainer="FriendsEntities">
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="FriendsModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+          <ScalarProperty Name="Customer_Phone" ColumnName="Customer_Phone" />
+          <ScalarProperty Name="Customer_Fax" ColumnName="Customer_Fax" />
+          <ScalarProperty Name="Customer_Mobile_Phone" ColumnName="Customer_Mobile_Phone" />
+          <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
+          <ScalarProperty Name="Customer_Website" ColumnName="Customer_Website" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ex_Per_Item">
+      <EntityTypeMapping TypeName="FriendsModel.Ex_Per_Item">
+        <MappingFragment StoreEntitySet="Ex_Per_Item">
+          <ScalarProperty Name="Ex_Per_Id" ColumnName="Ex_Per_Id" />
+          <ScalarProperty Name="Ex_Per_Item_Id" ColumnName="Ex_Per_Item_Id" />
+          <ScalarProperty Name="Cus_ID" ColumnName="Cus_ID" />
+          <ScalarProperty Name="Ex_Per_Item_Quantity" ColumnName="Ex_Per_Item_Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Export_Permission">
+      <EntityTypeMapping TypeName="FriendsModel.Export_Permission">
+        <MappingFragment StoreEntitySet="Export_Permission">
+          <ScalarProperty Name="Ex_Per_Id" ColumnName="Ex_Per_Id" />
+          <ScalarProperty Name="Ex_Per_WH_Id" ColumnName="Ex_Per_WH_Id" />
+          <ScalarProperty Name="Ex_Per_Date" ColumnName="Ex_Per_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="FriendsModel.Item">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="Item_Id" ColumnName="Item_Id" />
+          <ScalarProperty Name="Item_Code" ColumnName="Item_Code" />
+          <ScalarProperty Name="Item_Name" ColumnName="Item_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items_MU">
+      <EntityTypeMapping TypeName="FriendsModel.Items_MU">
+        <MappingFragment StoreEntitySet="Items_MU">
+          <ScalarProperty Name="Item_Id" ColumnName="Item_Id" />
+          <ScalarProperty Name="MU_Name" ColumnName="MU_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sup_Per_Item">
+      <EntityTypeMapping TypeName="FriendsModel.Sup_Per_Item">
+        <MappingFragment StoreEntitySet="Sup_Per_Item">
+          <ScalarProperty Name="Sup_Per_Id" ColumnName="Sup_Per_Id" />
+          <ScalarProperty Name="Sup_Per_Item_Id" ColumnName="Sup_Per_Item_Id" />
+          <ScalarProperty Name="Sup_Per_Item_Quantity" ColumnName="Sup_Per_Item_Quantity" />
+          <ScalarProperty Name="Sup_Per_Item_Pro_Date" ColumnName="Sup_Per_Item_Pro_Date" />
+          <ScalarProperty Name="Sup_Per_Item_Validation" ColumnName="Sup_Per_Item_Validation" />
+          <ScalarProperty Name="Sup_Id" ColumnName="Sup_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="FriendsModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="Supplier_Id" ColumnName="Supplier_Id" />
+          <ScalarProperty Name="Supplier_Name" ColumnName="Supplier_Name" />
+          <ScalarProperty Name="Supplier_Phone" ColumnName="Supplier_Phone" />
+          <ScalarProperty Name="Supplier_Fax" ColumnName="Supplier_Fax" />
+          <ScalarProperty Name="Supplier_Mobile_Phone" ColumnName="Supplier_Mobile_Phone" />
+          <ScalarProperty Name="Supplier_Email" ColumnName="Supplier_Email" />
+          <ScalarProperty Name="Supplier_Website" ColumnName="Supplier_Website" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supply_Permission">
+      <EntityTypeMapping TypeName="FriendsModel.Supply_Permission">
+        <MappingFragment StoreEntitySet="Supply_Permission">
+          <ScalarProperty Name="Sup_Per_Id" ColumnName="Sup_Per_Id" />
+          <ScalarProperty Name="Sup_Per_WH_Id" ColumnName="Sup_Per_WH_Id" />
+          <ScalarProperty Name="Sup_Per_Date" ColumnName="Sup_Per_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="FriendsModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transfers">
+      <EntityTypeMapping TypeName="FriendsModel.Transfer">
+        <MappingFragment StoreEntitySet="Transfer">
+          <ScalarProperty Name="Trans_Id" ColumnName="Trans_Id" />
+          <ScalarProperty Name="WH_From_Id" ColumnName="WH_From_Id" />
+          <ScalarProperty Name="WH_To_Id" ColumnName="WH_To_Id" />
+          <ScalarProperty Name="Item_Id" ColumnName="Item_Id" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Sup_Id" ColumnName="Sup_Id" />
+          <ScalarProperty Name="Pro_Date" ColumnName="Pro_Date" />
+          <ScalarProperty Name="Validation" ColumnName="Validation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Warehouses">
+      <EntityTypeMapping TypeName="FriendsModel.Warehouse">
+        <MappingFragment StoreEntitySet="Warehouse">
+          <ScalarProperty Name="WH_Id" ColumnName="WH_Id" />
+          <ScalarProperty Name="WH_Name" ColumnName="WH_Name" />
+          <ScalarProperty Name="WH_Location" ColumnName="WH_Location" />
+          <ScalarProperty Name="WH_Manager" ColumnName="WH_Manager" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

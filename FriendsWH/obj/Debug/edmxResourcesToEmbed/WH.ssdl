@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FriendsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Customer_Id" />
+    </Key>
+    <Property Name="Customer_Id" Type="int" Nullable="false" />
+    <Property Name="Customer_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Customer_Phone" Type="int" Nullable="false" />
+    <Property Name="Customer_Fax" Type="int" />
+    <Property Name="Customer_Mobile_Phone" Type="int" />
+    <Property Name="Customer_Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Customer_Website" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Ex_Per_Item">
+    <Key>
+      <PropertyRef Name="Ex_Per_Id" />
+      <PropertyRef Name="Ex_Per_Item_Id" />
+    </Key>
+    <Property Name="Ex_Per_Id" Type="int" Nullable="false" />
+    <Property Name="Ex_Per_Item_Id" Type="int" Nullable="false" />
+    <Property Name="Cus_ID" Type="int" Nullable="false" />
+    <Property Name="Ex_Per_Item_Quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Export_Permission">
+    <Key>
+      <PropertyRef Name="Ex_Per_Id" />
+    </Key>
+    <Property Name="Ex_Per_Id" Type="int" Nullable="false" />
+    <Property Name="Ex_Per_WH_Id" Type="int" Nullable="false" />
+    <Property Name="Ex_Per_Date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="Item_Id" />
+    </Key>
+    <Property Name="Item_Id" Type="int" Nullable="false" />
+    <Property Name="Item_Code" Type="int" Nullable="false" />
+    <Property Name="Item_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Items_MU">
+    <Key>
+      <PropertyRef Name="Item_Id" />
+      <PropertyRef Name="MU_Name" />
+    </Key>
+    <Property Name="Item_Id" Type="int" Nullable="false" />
+    <Property Name="MU_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sup_Per_Item">
+    <Key>
+      <PropertyRef Name="Sup_Per_Id" />
+      <PropertyRef Name="Sup_Per_Item_Id" />
+    </Key>
+    <Property Name="Sup_Per_Id" Type="int" Nullable="false" />
+    <Property Name="Sup_Per_Item_Id" Type="int" Nullable="false" />
+    <Property Name="Sup_Per_Item_Quantity" Type="int" Nullable="false" />
+    <Property Name="Sup_Per_Item_Pro_Date" Type="date" Nullable="false" />
+    <Property Name="Sup_Per_Item_Validation" Type="int" Nullable="false" />
+    <Property Name="Sup_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="Supplier_Id" />
+    </Key>
+    <Property Name="Supplier_Id" Type="int" Nullable="false" />
+    <Property Name="Supplier_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Supplier_Phone" Type="int" Nullable="false" />
+    <Property Name="Supplier_Fax" Type="int" />
+    <Property Name="Supplier_Mobile_Phone" Type="int" />
+    <Property Name="Supplier_Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Supplier_Website" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Supply_Permission">
+    <Key>
+      <PropertyRef Name="Sup_Per_Id" />
+    </Key>
+    <Property Name="Sup_Per_Id" Type="int" Nullable="false" />
+    <Property Name="Sup_Per_WH_Id" Type="int" Nullable="false" />
+    <Property Name="Sup_Per_Date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Transfer">
+    <Key>
+      <PropertyRef Name="Trans_Id" />
+    </Key>
+    <Property Name="Trans_Id" Type="int" Nullable="false" />
+    <Property Name="WH_From_Id" Type="int" Nullable="false" />
+    <Property Name="WH_To_Id" Type="int" Nullable="false" />
+    <Property Name="Item_Id" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Sup_Id" Type="int" Nullable="false" />
+    <Property Name="Pro_Date" Type="date" Nullable="false" />
+    <Property Name="Validation" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="WH_Id" />
+    </Key>
+    <Property Name="WH_Id" Type="int" Nullable="false" />
+    <Property Name="WH_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="WH_Location" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="WH_Manager" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Ex_Per_Item_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Ex_Per_Item" Type="Self.Ex_Per_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Customer_Id" />
+      </Principal>
+      <Dependent Role="Ex_Per_Item">
+        <PropertyRef Name="Cus_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ex_Per_Item_Exchange_Permission">
+    <End Role="Export_Permission" Type="Self.Export_Permission" Multiplicity="1" />
+    <End Role="Ex_Per_Item" Type="Self.Ex_Per_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Export_Permission">
+        <PropertyRef Name="Ex_Per_Id" />
+      </Principal>
+      <Dependent Role="Ex_Per_Item">
+        <PropertyRef Name="Ex_Per_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ex_Per_Item_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="Ex_Per_Item" Type="Self.Ex_Per_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Item_Id" />
+      </Principal>
+      <Dependent Role="Ex_Per_Item">
+        <PropertyRef Name="Ex_Per_Item_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exchange_Permission_Warehouse">
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+    <End Role="Export_Permission" Type="Self.Export_Permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="WH_Id" />
+      </Principal>
+      <Dependent Role="Export_Permission">
+        <PropertyRef Name="Ex_Per_WH_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Items_MU_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="Items_MU" Type="Self.Items_MU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Item_Id" />
+      </Principal>
+      <Dependent Role="Items_MU">
+        <PropertyRef Name="Item_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sup_Per_Item_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="Sup_Per_Item" Type="Self.Sup_Per_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Item_Id" />
+      </Principal>
+      <Dependent Role="Sup_Per_Item">
+        <PropertyRef Name="Sup_Per_Item_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sup_Per_Item_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="Sup_Per_Item" Type="Self.Sup_Per_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Supplier_Id" />
+      </Principal>
+      <Dependent Role="Sup_Per_Item">
+        <PropertyRef Name="Sup_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sup_Per_Item_Supply_Permission">
+    <End Role="Supply_Permission" Type="Self.Supply_Permission" Multiplicity="1" />
+    <End Role="Sup_Per_Item" Type="Self.Sup_Per_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supply_Permission">
+        <PropertyRef Name="Sup_Per_Id" />
+      </Principal>
+      <Dependent Role="Sup_Per_Item">
+        <PropertyRef Name="Sup_Per_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Supply_Permission_Warehouse">
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+    <End Role="Supply_Permission" Type="Self.Supply_Permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="WH_Id" />
+      </Principal>
+      <Dependent Role="Supply_Permission">
+        <PropertyRef Name="Sup_Per_WH_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transfer_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="Transfer" Type="Self.Transfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Item_Id" />
+      </Principal>
+      <Dependent Role="Transfer">
+        <PropertyRef Name="Item_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transfer_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="Transfer" Type="Self.Transfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Supplier_Id" />
+      </Principal>
+      <Dependent Role="Transfer">
+        <PropertyRef Name="Sup_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transfer_Warehouse">
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+    <End Role="Transfer" Type="Self.Transfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="WH_Id" />
+      </Principal>
+      <Dependent Role="Transfer">
+        <PropertyRef Name="WH_From_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transfer_Warehouse1">
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+    <End Role="Transfer" Type="Self.Transfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="WH_Id" />
+      </Principal>
+      <Dependent Role="Transfer">
+        <PropertyRef Name="WH_To_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FriendsModelStoreContainer">
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ex_Per_Item" EntityType="Self.Ex_Per_Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Export_Permission" EntityType="Self.Export_Permission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Items_MU" EntityType="Self.Items_MU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sup_Per_Item" EntityType="Self.Sup_Per_Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supply_Permission" EntityType="Self.Supply_Permission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transfer" EntityType="Self.Transfer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Ex_Per_Item_Customer" Association="Self.FK_Ex_Per_Item_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Ex_Per_Item" EntitySet="Ex_Per_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ex_Per_Item_Exchange_Permission" Association="Self.FK_Ex_Per_Item_Exchange_Permission">
+      <End Role="Export_Permission" EntitySet="Export_Permission" />
+      <End Role="Ex_Per_Item" EntitySet="Ex_Per_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ex_Per_Item_Item" Association="Self.FK_Ex_Per_Item_Item">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="Ex_Per_Item" EntitySet="Ex_Per_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exchange_Permission_Warehouse" Association="Self.FK_Exchange_Permission_Warehouse">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="Export_Permission" EntitySet="Export_Permission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Items_MU_Item" Association="Self.FK_Items_MU_Item">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="Items_MU" EntitySet="Items_MU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sup_Per_Item_Item" Association="Self.FK_Sup_Per_Item_Item">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="Sup_Per_Item" EntitySet="Sup_Per_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sup_Per_Item_Supplier" Association="Self.FK_Sup_Per_Item_Supplier">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="Sup_Per_Item" EntitySet="Sup_Per_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sup_Per_Item_Supply_Permission" Association="Self.FK_Sup_Per_Item_Supply_Permission">
+      <End Role="Supply_Permission" EntitySet="Supply_Permission" />
+      <End Role="Sup_Per_Item" EntitySet="Sup_Per_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Supply_Permission_Warehouse" Association="Self.FK_Supply_Permission_Warehouse">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="Supply_Permission" EntitySet="Supply_Permission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transfer_Item" Association="Self.FK_Transfer_Item">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="Transfer" EntitySet="Transfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transfer_Supplier" Association="Self.FK_Transfer_Supplier">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="Transfer" EntitySet="Transfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transfer_Warehouse" Association="Self.FK_Transfer_Warehouse">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="Transfer" EntitySet="Transfer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transfer_Warehouse1" Association="Self.FK_Transfer_Warehouse1">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="Transfer" EntitySet="Transfer" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

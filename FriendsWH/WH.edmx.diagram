@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5ee483756b9543499700148d94e5dd23" Name="Diagram1">
+        <EntityTypeShape EntityType="FriendsModel.Customer" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FriendsModel.Ex_Per_Item" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FriendsModel.Export_Permission" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FriendsModel.Item" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FriendsModel.Items_MU" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FriendsModel.Sup_Per_Item" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FriendsModel.Supplier" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FriendsModel.Supply_Permission" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FriendsModel.sysdiagram" Width="1.5" PointX="5.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FriendsModel.Transfer" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FriendsModel.Warehouse" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="FriendsModel.FK_Ex_Per_Item_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="FriendsModel.FK_Ex_Per_Item_Exchange_Permission" ManuallyRouted="false" />
+        <AssociationConnector Association="FriendsModel.FK_Ex_Per_Item_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="FriendsModel.FK_Exchange_Permission_Warehouse" ManuallyRouted="false" />
+        <AssociationConnector Association="FriendsModel.FK_Items_MU_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="FriendsModel.FK_Sup_Per_Item_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="FriendsModel.FK_Transfer_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="FriendsModel.FK_Sup_Per_Item_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="FriendsModel.FK_Sup_Per_Item_Supply_Permission" ManuallyRouted="false" />
+        <AssociationConnector Association="FriendsModel.FK_Transfer_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="FriendsModel.FK_Supply_Permission_Warehouse" ManuallyRouted="false" />
+        <AssociationConnector Association="FriendsModel.FK_Transfer_Warehouse" ManuallyRouted="false" />
+        <AssociationConnector Association="FriendsModel.FK_Transfer_Warehouse1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
